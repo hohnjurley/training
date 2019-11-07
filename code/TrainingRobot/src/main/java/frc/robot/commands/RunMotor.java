@@ -15,7 +15,8 @@ public class RunMotor extends Command {
   public RunMotor(Motors motors) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(this.motors = motors);
+    requires(motors);
+    this.motors = motors;
   }
 
   // Called just before this Command runs the first time
@@ -38,11 +39,13 @@ public class RunMotor extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    motors.run(0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
