@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
 
-    new RunMotor(motors);
+    motors.setDefaultCommand(new RunMotor(motors));
   }
 
   /**
